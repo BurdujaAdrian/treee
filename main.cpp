@@ -30,13 +30,22 @@ Node* insert(Node* root, int value)
     return root;
 }
 
-void printTree(Node* root, int spaces = 0)
-{
-    if (root != nullptr) {
-        printTree(root->right, spaces + 4);
-        cout << string(spaces, ' ') << root->data << endl;
-        printTree(root->left, spaces + 4);
+void printTree(Node* root, int spaces = 0) {
+
+    if (root == nullptr) {
+        return;
     }
+
+
+    for (int i = 0; i < spaces; ++i) {
+        cout << " ";
+    }
+    cout << root->data << "\n";
+
+
+    printTree(root->right, spaces + 4);
+
+    printTree(root->left, spaces + 4);
 }
 
 Node* findMinValueNode(Node* node) {
